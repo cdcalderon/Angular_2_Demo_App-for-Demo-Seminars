@@ -25,12 +25,15 @@ var EventListComponent = (function () {
             }
         };
     }
+    EventListComponent.prototype.handleEventClicked = function (data) {
+        console.log("recived " + data);
+    };
     return EventListComponent;
 }());
 EventListComponent = __decorate([
     core_1.Component({
         selector: 'events-list',
-        template: "\n        <div>\n            <h1>Upcoming Angular 2 Events</h1>\n            <hr/>\n\n            <event-thumbnail [event]=\"event1\"></event-thumbnail>\n        </div>\n    "
+        template: "\n        <div>\n            <h1>Upcoming Angular 2 Events</h1>\n            <hr/>\n\n            <event-thumbnail [event]=\"event1\" (eventClick)=\"handleEventClicked($event)\"></event-thumbnail>\n        </div>\n    "
     }),
     __metadata("design:paramtypes", [])
 ], EventListComponent);
