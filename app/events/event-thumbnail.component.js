@@ -9,29 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var ThumbNailComponent = (function () {
-    function ThumbNailComponent() {
+var EventThumbNailComponent = (function () {
+    function EventThumbNailComponent() {
         this.eventClick = new core_1.EventEmitter();
+        this.someProperty = 'some value';
     }
-    ThumbNailComponent.prototype.handleClickMe = function () {
+    EventThumbNailComponent.prototype.handleClickMe = function () {
         this.eventClick.emit('foo');
     };
-    return ThumbNailComponent;
+    EventThumbNailComponent.prototype.logFoo = function () {
+        console.log('Foo');
+    };
+    return EventThumbNailComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], ThumbNailComponent.prototype, "event", void 0);
+], EventThumbNailComponent.prototype, "event", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
-], ThumbNailComponent.prototype, "eventClick", void 0);
-ThumbNailComponent = __decorate([
+], EventThumbNailComponent.prototype, "eventClick", void 0);
+EventThumbNailComponent = __decorate([
     core_1.Component({
         selector: 'event-thumbnail',
         template: "\n        <div class=\"well hoverwell thumbnail\">\n            <h2>{{event.name}}</h2>\n            <div>Date: {{event.time}}</div>\n            <div>Price: ${{event.price}}</div>\n            <div>\n                <span>Location {{event.location.address}}</span>\n                <span>&nbsp;</span>\n                <span>{{event.location.city}}, {{event.location.country}}</span>\n            </div>\n            <button class=\"btn btn-primary\" (click)=\"handleClickMe()\">Click</button>\n        </div>\n    "
     }),
     __metadata("design:paramtypes", [])
-], ThumbNailComponent);
-exports.ThumbNailComponent = ThumbNailComponent;
+], EventThumbNailComponent);
+exports.EventThumbNailComponent = EventThumbNailComponent;
 //# sourceMappingURL=event-thumbnail.component.js.map

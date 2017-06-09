@@ -24,7 +24,7 @@ AppModule = __decorate([
         declarations: [
             events_app_component_1.EventsAppComponent,
             events_list_component_1.EventListComponent,
-            event_thumbnail_component_1.ThumbNailComponent
+            event_thumbnail_component_1.EventThumbNailComponent
         ],
         bootstrap: [events_app_component_1.EventsAppComponent]
     }),
