@@ -10,21 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var event_service_1 = require("./shared/event.service");
+var toastr_service_1 = require("../common/toastr.service");
 var EventListComponent = (function () {
-    function EventListComponent(eventService) {
+    function EventListComponent(eventService, toastr) {
         this.eventService = eventService;
+        this.toastr = toastr;
     }
     EventListComponent.prototype.ngOnInit = function () {
         this.events = this.eventService.getEvents();
+    };
+    EventListComponent.prototype.handleThumbnailClick = function (eventName) {
+        this.toastr.success(eventName);
     };
     return EventListComponent;
 }());
 EventListComponent = __decorate([
     core_1.Component({
         selector: 'events-list',
-        template: "\n        <div>\n            <h1>Upcoming Angular 2 Events</h1>\n            <hr/>\n            <div class=\"row\">\n                <event-thumbnail \n                        *ngFor=\"let event of events\"\n                        [event]=\"event\"\n                         class=\"col-md-5\">\n                    \n                </event-thumbnail>\n            </div>s\n            \n        </div>\n    "
+        template: "\n        <div>\n            <h1>Upcoming Angular 2 Events</h1>\n            <hr/>\n            <div class=\"row\">\n                <event-thumbnail \n                        *ngFor=\"let event of events\"\n                        [event]=\"event\"\n                         class=\"col-md-5\"\n                        (click)=\"handleThumbnailClick(event.name)\">\n                    \n                </event-thumbnail>\n            </div>s\n            \n        </div>\n    "
     }),
-    __metadata("design:paramtypes", [event_service_1.EventService])
+    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService])
 ], EventListComponent);
 exports.EventListComponent = EventListComponent;
 //# sourceMappingURL=events-list.component.js.map
